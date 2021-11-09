@@ -12,6 +12,10 @@ jobs:
   windows-2022:
     name: "windows 2022"  
     runs-on: windows-2022
+    env:
+      distribution: "mcr.microsoft.com/windows/servercore:ltsc2019" # # https://hub.docker.com/_/microsoft-windows-base-os-images
+      version: "latest"
+      name: "servercore/base"    
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -30,8 +34,7 @@ jobs:
     - name: "look for unusual services"
       run: net start                       
     - name: "query unusual services"
-      run: sc query  
-      # https://hub.docker.com/_/microsoft-windows-base-os-images
+      run: sc query        
       # Windows container version compatibility
       # https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-10-21H1
     - name: "docker info"
@@ -43,13 +46,21 @@ jobs:
     - name: "Deploy a Test Container"
       run: |
         docker pull mcr.microsoft.com/windows/nanoserver:ltsc2022
-        docker images   
+        docker images  
+    - name: "build docker image"
+      run: |   
+        docker build --no-cache --rm  -t $env:name/$env:version  . --file dockerfiles/$env:dockerfilename
+        docker image ls
+    - name: "build docker dotnet image"
+      run: |  
+        docker build --no-cache --rm  -t dotnet/base/latest  . --file dockerfiles/Dockerfile.dotnet
+        docker image ls         
 
   windows-latest:
     name: "windows-latest"  
     runs-on: windows-latest
     env:
-      distribution: "scientificlinux" # https://hub.docker.com/_/sl
+      distribution: "mcr.microsoft.com/windows/servercore:ltsc2019" # # https://hub.docker.com/_/microsoft-windows-base-os-images
       version: "latest"
       name: "servercore/base"
       # dockerfilename: "Dockerfile.iis"    
@@ -84,17 +95,12 @@ jobs:
         # docker ps
     - name: "Deploy a Test Container"
       run: |
-        docker run --name dock2019 mcr.microsoft.com/windows/nanoserver:1809
-        docker images
+        docker pull mcr.microsoft.com/windows/nanoserver:ltsc2022
+        docker images  
     - name: "build docker image"
-      run: |
-        # echo $env:dockerfilename 
-        # echo $env:name     
+      run: |   
         docker build --no-cache --rm  -t $env:name/$env:version  . --file dockerfiles/$env:dockerfilename
         docker image ls
-        # docker image history ${name}/${version}
-        # docker system df -v               
-        # # docker image inspect ${name}/${version}
     - name: "build docker dotnet image"
       run: |  
         docker build --no-cache --rm  -t dotnet/base/latest  . --file dockerfiles/Dockerfile.dotnet
