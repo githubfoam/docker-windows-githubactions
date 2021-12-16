@@ -17,8 +17,8 @@ jobs:
       matrix:
         node:
          - dotnet
-        #  - iis
-        #  - node      
+         - iis
+         - node      
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -49,10 +49,12 @@ jobs:
         docker ps
     - name: "run docker matrix build test"
       run: |
-        # dir=$(pwd)
-        # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles       
         cd ${{matrix.node}}
+        Write-Host "####################################################################"
+        Write-Host "### building   ${{matrix.node}} dockerfile     #####################"
+        Write-Host "####################################################################"
         docker build -t docker-osx/${{matrix.node}} .
+      shell: pwsh 
