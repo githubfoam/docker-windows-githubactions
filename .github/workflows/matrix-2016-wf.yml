@@ -16,8 +16,9 @@ jobs:
     strategy:
       matrix:
         node:
-         - apache
-         - servercore       
+        #  - apache
+        #  - servercore
+         - redhat      
     steps:
     - name: Checkout
       uses: actions/checkout@v1

@@ -17,8 +17,8 @@ jobs:
       matrix:
         node:
          - dotnet
-         - iis
-         - node      
+        #  - iis
+        #  - node      
     steps:
     - name: Checkout
       uses: actions/checkout@v1
