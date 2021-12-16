@@ -1,5 +1,5 @@
 
-name: "matrix docker CI workflow"
+name: "matrix 2019 docker CI workflow"
 
 on:
   push:
@@ -16,9 +16,8 @@ jobs:
     strategy:
       matrix:
         node:
-         - dotnet
-        #  - iis
-        #  - node      
+         - apache
+         - servercore       
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -53,6 +52,6 @@ jobs:
         # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles       
+        cd $curDir/dockerfiles/2019        
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
