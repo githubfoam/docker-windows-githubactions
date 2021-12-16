@@ -22,10 +22,10 @@ RUN Invoke-WebRequest 'https://download.microsoft.com/download/9/3/F/93FCF1E7-E6
 
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-COPY --from=download C:\Apache24 C:\Apache24
-COPY --from=download C:\windows\system32\msvcp140.dll C:\windows\system32
-COPY --from=download C:\windows\system32\vcruntime140.dll C:\windows\system32
+# COPY --from=download C:\Apache24 C:\Apache24
+# COPY --from=download C:\windows\system32\msvcp140.dll C:\windows\system32
+# COPY --from=download C:\windows\system32\vcruntime140.dll C:\windows\system32
 
-EXPOSE 80
+# EXPOSE 80
 
-CMD [ "C:\\Apache24\\bin\\httpd.exe" ]
+# CMD [ "C:\\Apache24\\bin\\httpd.exe" ]
