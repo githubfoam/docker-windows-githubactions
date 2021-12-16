@@ -15,10 +15,11 @@ jobs:
     strategy:
       matrix:
         node:
-         - dotnet
-         - iis
-         - node
-         - servercore
+        #  - dotnet
+        #  - iis
+        #  - node
+         - apache
+        #  - servercore
         #  - golang
         #  - python
         #  - base        
