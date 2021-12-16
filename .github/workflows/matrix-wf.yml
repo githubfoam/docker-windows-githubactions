@@ -52,7 +52,10 @@ jobs:
         docker ps
     - name: "run docker matrix build test"
       run: |
-        dir=$(pwd)
-        cd $dir/dockerfiles
+        # dir=$(pwd)
+        # cd $dir/dockerfiles
+        $curDir = Get-Location
+        Write-Host "Current Working Directory: $curDir"
+        cd $curDir/dockerfiles/windows        
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
