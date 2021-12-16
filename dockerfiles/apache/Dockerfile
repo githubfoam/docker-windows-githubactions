@@ -12,9 +12,9 @@ RUN Invoke-WebRequest ('http://de.apachehaus.com/downloads/httpd-{0}-o111l-x64-v
 #     Expand-Archive apache.zip -DestinationPath C:\ ; `
 #     Remove-Item -Path apache.zip
 
-RUN Invoke-WebRequest 'https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe' -OutFile 'vc_redist.x64.exe'; \
-    Start-Process '.\vc_redist.x64.exe' '/install /passive /norestart' -Wait; \
-    Remove-Item vc_redist.x64.exe;
+# RUN Invoke-WebRequest 'https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe' -OutFile 'vc_redist.x64.exe'; \
+#     Start-Process '.\vc_redist.x64.exe' '/install /passive /norestart' -Wait; \
+#     Remove-Item vc_redist.x64.exe;
 
 # RUN Invoke-WebRequest 'https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe' -OutFile 'vc_redist.x64.exe'; `
 #     Start-Process '.\vc_redist.x64.exe' '/install /passive /norestart' -Wait; `

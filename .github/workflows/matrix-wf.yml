@@ -9,9 +9,10 @@ on:
 
 jobs:
          
-  windows-2022:
-    name: "windows 2022"  
-    runs-on: windows-2022
+  # windows-2022: #The container operating system does not match the host operating system.
+  windows-2019: 
+    name: "windows 2019"  
+    runs-on: windows-2019    
     strategy:
       matrix:
         node:
