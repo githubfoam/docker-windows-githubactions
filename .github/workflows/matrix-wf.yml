@@ -16,9 +16,9 @@ jobs:
       matrix:
         node:
          - dotnet
-        #  - iis
-        #  - node
-        #  - servercore
+         - iis
+         - node
+         - servercore
         #  - golang
         #  - python
         #  - base        
@@ -56,6 +56,6 @@ jobs:
         # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles/windows        
+        cd $curDir/dockerfiles        
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
