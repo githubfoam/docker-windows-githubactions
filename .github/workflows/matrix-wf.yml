@@ -16,9 +16,9 @@ jobs:
       matrix:
         node:
          - dotnet
-         - iis
-         - node
-         - servercore
+        #  - iis
+        #  - node
+        #  - servercore
         #  - golang
         #  - python
         #  - base        
