@@ -18,7 +18,7 @@ jobs:
         node:
         #  - apache
         #  - servercore
-         - redhat      
+         - "1.8.0-openjdk-1.8.0.111-1"      
     steps:
     - name: Checkout
       uses: actions/checkout@v1
