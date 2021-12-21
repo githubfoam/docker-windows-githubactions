@@ -21,7 +21,7 @@ jobs:
          - iis
         #  - sysinternals
     env:
-      distribution: "2022"        
+      distro: "srvcore2022"        
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -59,7 +59,7 @@ jobs:
         cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
         # docker build -t docker-osx/${{matrix.node}} .
-        docker build -t ${{distribution}}/${{matrix.node}} .
+        docker build -t ${distro}/${{matrix.node}} .
         docker image ls
         # docker image history ${name}:${version}
         # docker system df -v 
