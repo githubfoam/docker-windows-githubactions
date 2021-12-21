@@ -1,5 +1,5 @@
 
-name: "matrix 2016 docker CI workflow"
+name: "matrix servercore 2016 docker CI workflow"
 
 on:
   push:
@@ -51,7 +51,7 @@ jobs:
       run: |
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles/2016/java/openjdk/redhat       
+        cd $curDir/dockerfiles/servercore/2016/java/openjdk/redhat       
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
         docker image ls
@@ -96,7 +96,7 @@ jobs:
     - name: "build"
       run: |
         # dir=$(pwd)
-        # cd $dir/dockerfiles/2016/java/openjdk/redhat
+        # cd $dir/dockerfiles/servercore/2016/java/openjdk/redhat
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/2016        
