@@ -20,8 +20,8 @@ jobs:
         #  - chocolatey       
          - iis
         #  - sysinternals
-    # env:
-    #   distro: "srvcore2022"        
+    env:
+      distro: "srvcore2022"        
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -56,10 +56,8 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
-        docker build -t  $env.DISTROX/${{matrix.node}} .
+        docker build -t srvcore2022/${{matrix.node}} .
         docker image ls 
-      env:
-        DISTROX: "srvcore2022"           
 
   # windows-2022: #The container operating system does not match the host operating system.
   windows-2022-amd64: 
