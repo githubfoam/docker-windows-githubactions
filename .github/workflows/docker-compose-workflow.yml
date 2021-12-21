@@ -41,14 +41,14 @@ jobs:
       # https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-10-21H1  
 # 12-alpine: Pulling from library/node
 # no matching manifest for windows/amd64 10.0.17763 in the manifest list entries             
-    - name: "build docker compose"
-      run: |
-        docker-compose version
-        docker-compose -f ~/dockercomposefiles/docker-compose-node-mysql.yml up -d
-        # docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
-        docker-compose images
-        docker-compose ps
-        docker-compose down
+    # - name: "build docker compose"
+    #   run: |
+    #     docker-compose version
+    #     docker-compose -f ~/dockercomposefiles/docker-compose-node-mysql.yml up -d
+    #     # docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
+    #     docker-compose images
+    #     docker-compose ps
+    #     docker-compose down
 
   windows-latest:
     name: "windows-latest"  

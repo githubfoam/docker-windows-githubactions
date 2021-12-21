@@ -1,6 +1,6 @@
 # https://github.com/microsoft/containerregistry
 # https://hub.docker.com/publishers/microsoftowner
-FROM mcr.microsoft.com/windows/servercore:2019
+FROM mcr.microsoft.com/windows/servercore:2ltsc2019
 
 # https://live.sysinternals.com/
 # https://docs.microsoft.com/en-us/sysinternals/downloads/psexec

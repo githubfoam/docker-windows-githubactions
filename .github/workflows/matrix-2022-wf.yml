@@ -58,6 +58,9 @@ jobs:
         cd ${{matrix.node}}
         docker build -t srvcore2022/${{matrix.node}} .
         docker image ls 
+        docker image history srvcore2022/${{matrix.node}}
+        docker system df -v               
+        docker image inspect srvcore2022/${{matrix.node}}            
 
   # windows-2022: #The container operating system does not match the host operating system.
   windows-2022-amd64: 
@@ -100,10 +103,12 @@ jobs:
         docker ps
     - name: "run docker matrix build test"
       run: |
-        # dir=$(pwd)
-        # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
-        docker build -t docker-osx/${{matrix.node}} .        
+        docker build -t srvcore2022/${{matrix.node}} .
+        docker image ls 
+        docker image history srvcore2022/${{matrix.node}}
+        docker system df -v               
+        docker image inspect srvcore2022/${{matrix.node}}                

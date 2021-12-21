@@ -53,8 +53,11 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2016/java/openjdk/redhat       
         cd ${{matrix.node}}
-        docker build -t docker-osx/${{matrix.node}} .
-        docker image ls
+        docker build -t srvcore2016/${{matrix.node}} .
+        docker image ls 
+        docker image history srvcore2016/${{matrix.node}}
+        docker system df -v               
+        docker image inspect srvcore2016/${{matrix.node}} 
 
   windows-2016: 
     name: "build servercore 2016 images"  
@@ -101,5 +104,8 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2016        
         cd ${{matrix.node}}
-        docker build -t docker-osx/${{matrix.node}} .
-        docker image ls
+        docker build -t srvcore2016/${{matrix.node}} .
+        docker image ls 
+        docker image history srvcore2016/${{matrix.node}}
+        docker system df -v               
+        docker image inspect srvcore2016/${{matrix.node}} 

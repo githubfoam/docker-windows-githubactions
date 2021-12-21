@@ -16,10 +16,10 @@ jobs:
     strategy:
       matrix:
         node:
-         - apache
-         - chocolatey       
+        #  - apache
+        #  - chocolatey       
          - iis
-         - sysinternals
+        #  - sysinternals
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -56,4 +56,8 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2019        
         cd ${{matrix.node}}
-        docker build -t docker-osx/${{matrix.node}} .
+        docker build -t srvcore2019/${{matrix.node}} .
+        docker image ls 
+        docker image history srvcore2019/${{matrix.node}}
+        docker system df -v               
+        docker image inspect srvcore2019/${{matrix.node}}         
