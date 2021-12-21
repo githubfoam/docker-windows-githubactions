@@ -58,7 +58,7 @@ jobs:
         cd ${{matrix.node}}
         # docker build -t $distro/${{matrix.node}} . NOK
         # docker build -t ${{distro}}/${{matrix.node}} . NOK
-        docker build -t  $DISTRO/${{matrix.node}} . NOK
+        docker build -t  $env.DISTRO/${{matrix.node}} . NOK
         # docker build -t srvcore2022/${{matrix.node}} . OK
         docker image ls
         # docker image history ${name}:${version}
