@@ -52,14 +52,14 @@ jobs:
         docker ps
     - name: "run docker matrix build test"
       run: |
-        # dir=$(pwd)
-        # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
-        # docker build -t docker-osx/${{matrix.node}} .
-        docker build -t srvcore2022/${{matrix.node}} .
+        $img = srvcore2022/${{matrix.node}}
+        Write-Host "Current Working Directory: $img"
+        # docker build -t srvcore2022/${{matrix.node}} .
+        docker build -t $img .
         docker image ls
         # docker image history ${name}:${version}
         # docker system df -v 
