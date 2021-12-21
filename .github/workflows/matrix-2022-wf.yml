@@ -20,8 +20,8 @@ jobs:
         #  - chocolatey       
          - iis
         #  - sysinternals
-    env:
-      distro: "srvcore2022"        
+    # env:
+    #   distro: "srvcore2022"        
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -51,6 +51,8 @@ jobs:
         docker --version
         docker ps
     - name: "run docker matrix build test"
+      env:
+        DISTRO: "srvcore2022"     
       run: |
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
@@ -58,6 +60,7 @@ jobs:
         cd ${{matrix.node}}
         # docker build -t $distro/${{matrix.node}} . NOK
         # docker build -t ${{distro}}/${{matrix.node}} . NOK
+        docker build -t  $DISTRO/${{matrix.node}} . NOK
         # docker build -t srvcore2022/${{matrix.node}} . OK
         docker image ls
         # docker image history ${name}:${version}
