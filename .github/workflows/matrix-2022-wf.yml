@@ -58,14 +58,14 @@ jobs:
         cd ${{matrix.node}}
         # docker build -t $distro/${{matrix.node}} . NOK
         # docker build -t ${{distro}}/${{matrix.node}} . NOK
-        docker build -t  $env.DISTRO/${{matrix.node}} . NOK
+        docker build -t  $env.DISTROX/${{matrix.node}} . NOK
         # docker build -t srvcore2022/${{matrix.node}} . OK
         docker image ls
         # docker image history ${name}:${version}
         # docker system df -v 
         # docker image inspect ${name}:${version}
       env:
-        DISTRO: "srvcore2022"           
+        DISTROX: "srvcore2022"           
 
   # windows-2022: #The container operating system does not match the host operating system.
   windows-2022-amd64: 
