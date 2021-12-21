@@ -57,7 +57,7 @@ jobs:
         docker image ls
 
   windows-2016: 
-    name: "windows 2016"  
+    name: "build servercore 2016 images"  
     runs-on: windows-2016    
     strategy:
       matrix:
@@ -93,13 +93,13 @@ jobs:
         docker version
         docker --version
         docker ps
-    - name: "build"
+    - name: "build servercore 2016 images"
       run: |
         # dir=$(pwd)
         # cd $dir/dockerfiles/servercore/2016/java/openjdk/redhat
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles/2016        
+        cd $curDir/dockerfiles/servercore/2016        
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
         docker image ls

@@ -1,5 +1,5 @@
 
-name: "matrix servercore 2019 docker CI workflow"
+name: "matrix servercore 2022 docker CI workflow"
 
 on:
   push:
@@ -10,16 +10,16 @@ on:
 jobs:
          
   # windows-2022: #The container operating system does not match the host operating system.
-  windows-2019: 
-    name: "windows 2019"  
-    runs-on: windows-2019    
+  windows-2022: 
+    name: "windows 2022"  
+    runs-on: windows-2022    
     strategy:
       matrix:
         node:
-         - apache
-         - chocolatey       
+        #  - apache
+        #  - chocolatey       
          - iis
-         - sysinternals
+        #  - sysinternals
     steps:
     - name: Checkout
       uses: actions/checkout@v1
@@ -54,6 +54,6 @@ jobs:
         # cd $dir/dockerfiles
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles/servercore/2019        
+        cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
         docker build -t docker-osx/${{matrix.node}} .
