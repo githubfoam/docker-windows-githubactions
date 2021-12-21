@@ -56,14 +56,8 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2022        
         cd ${{matrix.node}}
-        # docker build -t $distro/${{matrix.node}} . NOK
-        # docker build -t ${{distro}}/${{matrix.node}} . NOK
-        docker build -t  $env.DISTROX/${{matrix.node}} . NOK
-        # docker build -t srvcore2022/${{matrix.node}} . OK
-        docker image ls
-        # docker image history ${name}:${version}
-        # docker system df -v 
-        # docker image inspect ${name}:${version}
+        docker build -t  $DISTROX/${{matrix.node}} .
+        docker image ls 
       env:
         DISTROX: "srvcore2022"           
 
