@@ -50,9 +50,7 @@ jobs:
         docker version
         docker --version
         docker ps
-    - name: "run docker matrix build test"
-      env:
-        DISTRO: "srvcore2022"     
+    - name: "run docker matrix build test"  
       run: |
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
@@ -66,6 +64,8 @@ jobs:
         # docker image history ${name}:${version}
         # docker system df -v 
         # docker image inspect ${name}:${version}
+      env:
+        DISTRO: "srvcore2022"           
 
   # windows-2022: #The container operating system does not match the host operating system.
   windows-2022-amd64: 
