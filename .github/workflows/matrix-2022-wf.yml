@@ -18,7 +18,7 @@ jobs:
         node:
         #  - apache
         #  - chocolatey       
-         - iis
+        #  - iis
          - msopenjdk
         #  - sysinternals
     env:
@@ -61,7 +61,8 @@ jobs:
         docker image ls 
         docker image history srvcore2022/${{matrix.node}}
         docker system df -v               
-        docker image inspect srvcore2022/${{matrix.node}}            
+        docker image inspect srvcore2022/${{matrix.node}}  
+        docker run --name javatest srvcore2022/msopenjdk          
 
   # # windows-2022: #The container operating system does not match the host operating system.
   # windows-2022-amd64: 
