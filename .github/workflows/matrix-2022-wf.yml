@@ -59,10 +59,11 @@ jobs:
         cd ${{matrix.node}}
         docker build -t srvcore2022/${{matrix.node}} .
         docker image ls 
-        docker image history srvcore2022/${{matrix.node}}
-        docker system df -v               
-        docker image inspect srvcore2022/${{matrix.node}}  
-        docker run --name javatest srvcore2022/msopenjdk          
+        # docker image history srvcore2022/${{matrix.node}}
+        # docker system df -v               
+        # docker image inspect srvcore2022/${{matrix.node}}  
+        docker run -t --name javatest srvcore2022/msopenjdk     
+        # docker container exec -it javatest powershell     
 
   # # windows-2022: #The container operating system does not match the host operating system.
   # windows-2022-amd64: 
