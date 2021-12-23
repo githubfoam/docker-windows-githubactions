@@ -17,6 +17,7 @@ jobs:
       matrix:
         node:
          - dotnet
+         - powershell
         #  - iis
         #  - node      
     steps:

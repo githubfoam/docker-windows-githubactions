@@ -1,0 +1,7 @@
+# https://docs.microsoft.com/en-us/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/set-up-windows-containers-with-powershell
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+LABEL Description="IIS" Vendor="Microsoft" Version="10"
+
+RUN powershell -Command Add-WindowsFeature Web-Server
+
+CMD [ "ping", "localhost", "-t" ]
