@@ -16,10 +16,10 @@ COPY wwwroot c:/inetpub/wwwroot
 # RUN powershell Remove-Item c:/inetpub/wwwroot/iisstart.html -force
 # RUN powershell Remove-Item c:/inetpub/wwwroot/iisstart.png -force
 # RUN powershell Import-Module WebAdministration
-RUN powershell New-WebAppPool -Name 'TestPool'
+# RUN powershell New-WebAppPool -Name 'TestPool'
 
 # Exposes port 80 on the new container image
-#EXPOSE 80
+EXPOSE 80
 
 # Sets the main command of the container image
 #ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
