@@ -1,4 +1,5 @@
-FROM microsoft/iis:latest
+# FROM microsoft/iis:latest
+FROM windows/servercore/iis
 
 # Metadata indicating an image maintainer.
 LABEL maintainer="bugs@contoso.com"
