@@ -13,7 +13,7 @@ LABEL maintainer="bugs@contoso.com"
 COPY wwwroot c:/inetpub/wwwroot
 
 # Run some PowerShell commands within the new container to set up the image
-RUN powershell Remove-Item c:/inetpub/wwwroot/iisstart.htm -force
+RUN powershell Remove-Item c:/inetpub/wwwroot/iisstart.html -force
 RUN powershell Remove-Item c:/inetpub/wwwroot/iisstart.png -force
 RUN powershell Import-Module WebAdministration
 RUN powershell New-WebAppPool -Name 'TestPool'
