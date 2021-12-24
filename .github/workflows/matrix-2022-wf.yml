@@ -15,10 +15,12 @@ jobs:
     runs-on: windows-2022    
     strategy:
       matrix:
-        node:
+        node: [sysinternals]
+        vdistro: [servercore]
+        vdistro-version: ['2022']
         #  - apache
         #  - chocolatey       
-         - iis
+        #  - iis
         #  - msopenjdk #NOK
         #  - sysinternals
     env:
@@ -57,7 +59,13 @@ jobs:
         Write-Host "Current Working Directory: $curDir"
         cd $curDir/dockerfiles/servercore/2022/amd64        
         cd ${{matrix.node}}
-        docker build -t srvcore2022/${{matrix.node}} .
+        echo "############################################"
+        echo "############################################"
+        echo "Building  ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}} dockerfile"
+        echo "############################################"
+        echo "############################################"         
+        # docker build -t srvcore2022/${{matrix.node}} .
+        docker build . -t  ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}} --build-arg DISTRO=${{matrix.vdistro}} --build-arg DISTRO_VERSION=${{matrix.vdistro-version}}  
         docker image ls 
         # docker image history srvcore2022/${{matrix.node}}
         # docker system df -v               
