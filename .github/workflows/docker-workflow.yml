@@ -40,12 +40,12 @@ jobs:
         docker version
         docker --version
         docker ps
-    - name: "generate a very simple Dockerfile with PowerShell"
-      shell: pwsh
-      run: | 
-        'FROM mcr.microsoft.com/windows/nanoserver:1809' | Set-Content Dockerfile 'CMD echo Hello World!' | Add-Content Dockerfile
-        docker image build --tag pwsh/hello-world .
-        docker container run pwsh/hello-world
+    # - name: "generate a very simple Dockerfile with PowerShell"
+    #   shell: pwsh
+    #   run: | 
+    #     'FROM mcr.microsoft.com/windows/nanoserver:1809' | Set-Content Dockerfile 'CMD echo Hello World!' | Add-Content Dockerfile
+    #     docker image build --tag pwsh/hello-world .
+    #     docker container run pwsh/hello-world
     - name: "Deploy a Test Container"
       run: |
         Get-WindowsFeature -Name Containers
