@@ -68,11 +68,12 @@ jobs:
         # docker build -t srvcore2022/${{matrix.node}} .
         docker build . -t  ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}} --build-arg DISTRO=${{matrix.vdistro}} --build-arg DISTRO_VERSION=${{matrix.vdistro-version}}  
         docker image ls 
-        # docker image history srvcore2022/${{matrix.node}}
+        # docker image history ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}}
         # docker system df -v               
-        # docker image inspect srvcore2022/${{matrix.node}}  
-        docker run servercore/ltsc2022/sysinternals:latest    
-        docker ps -a
+        # docker image inspect ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}} 
+        docker run --name tester -d ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}}
+        docker ps
+        # docker exec 
         # docker container exec -it javatest powershell     
 
   # # windows-2022: #The container operating system does not match the host operating system.
