@@ -71,7 +71,7 @@ jobs:
         # docker image history srvcore2022/${{matrix.node}}
         # docker system df -v               
         # docker image inspect srvcore2022/${{matrix.node}}  
-        # docker run srvcore2022/msopenjdk:latest     
+        docker run servercore/ltsc2022/sysinternals:latest    
         docker ps -a
         # docker container exec -it javatest powershell     
 
