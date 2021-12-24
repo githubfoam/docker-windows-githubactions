@@ -18,8 +18,8 @@ jobs:
         node:
         #  - apache
         #  - chocolatey       
-        #  - iis
-         - msopenjdk
+         - iis
+        #  - msopenjdk #NOK
         #  - sysinternals
     env:
       distro: "srvcore2022"        
@@ -62,7 +62,7 @@ jobs:
         # docker image history srvcore2022/${{matrix.node}}
         # docker system df -v               
         # docker image inspect srvcore2022/${{matrix.node}}  
-        docker run srvcore2022/msopenjdk:latest     
+        # docker run srvcore2022/msopenjdk:latest     
         docker ps -a
         # docker container exec -it javatest powershell     
 
