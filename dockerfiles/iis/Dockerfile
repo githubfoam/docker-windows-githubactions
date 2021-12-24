@@ -1,10 +1,4 @@
-ARG DISTRO
-ARG DISTRO_VERSION
-# https://github.com/microsoft/containerregistry
-# https://hub.docker.com/publishers/microsoftowner
-
-FROM mcr.microsoft.com/windows/$DISTRO:$DISTRO_VERSION
-# FROM mcr.microsoft.com/windows/servercore:ltsc2022
+FROM microsoft/iis:latest
 
 # Metadata indicating an image maintainer.
 LABEL maintainer="bugs@contoso.com"
