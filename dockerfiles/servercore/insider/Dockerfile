@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore/insider:10.0.18362.1
+FROM mcr.microsoft.com/windows/servercore/insider
 
 RUN echo "Downloading dbconvert studio"
 
