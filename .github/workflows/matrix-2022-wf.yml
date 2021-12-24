@@ -125,4 +125,7 @@ jobs:
         docker image ls 
         docker image history iis/${{matrix.node}}
         docker system df -v               
-        docker image inspect iis/${{matrix.node}}                
+        docker image inspect iis/${{matrix.node}}    
+        docker run --name tester -d ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}}
+        docker ps
+        docker exec tester powershell Get-ChildItem c:\inetpub\wwwroot
