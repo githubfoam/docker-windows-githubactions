@@ -57,8 +57,9 @@ jobs:
       run: |
         $curDir = Get-Location
         Write-Host "Current Working Directory: $curDir"
-        cd $curDir/dockerfiles/servercore/2022/amd64        
-        cd ${{matrix.node}}
+        # cd $curDir/dockerfiles       
+        # cd ${{matrix.node}}
+        cd $curDir/dockerfiles/${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}}
         echo "############################################"
         echo "############################################"
         echo "Building  ${{matrix.vdistro}}/${{matrix.vdistro-version}}/${{matrix.node}} dockerfile"
